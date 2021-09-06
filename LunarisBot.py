@@ -167,4 +167,4 @@ async def on_message(message):
                                                    , colour=0xe3da13))
 
 
-client.run("NTgzNjkzNjc5MjU3MTkwNDAx.XPAFGQ.4ZoA4z99XtewKrl57MoWr4jw41A")
+client.run("Discord_API")
