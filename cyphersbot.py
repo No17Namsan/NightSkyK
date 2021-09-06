@@ -14,7 +14,7 @@ import random
 
 #client_set
 client = discord.Client()
-cy_client_id = "A2kZ1re2e0i8a6ge6qAg4CjkYPUMHimq"
+cy_client_id = "Cyphers_API"
 
 #embed setting_Footer&thumbnail
 def embed_default(embed):
@@ -379,4 +379,4 @@ async def on_message(message):
                 await textchannel.send(embed=embed)
 
 #Discord API_Keys
-client.run('Njg0NzA0MzIwMTEyOTUxMzQ3.Xl9-lw.FK0vOHX7xPiVW48z72LD1dKUnYw')
+client.run('Discord_API')
