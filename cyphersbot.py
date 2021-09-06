@@ -51,6 +51,7 @@ async def on_message(message):
         if message.author.bot:  # 만약 메시지를 보낸사람이 봇일 경우에는
             return None  # 동작하지 않고 무시합니다.
 
+        guild = message.author.guild
         member = message.author         #메세지를 보낸 사람
         now = datetime.now()            #메세지를 보낸 시각
         textchannel = message.channel   #메세지를 보낸 채널
@@ -68,7 +69,7 @@ async def on_message(message):
                             value='```포지션 정보가 캐릭터 레벨 옆에 표시됩니다!```',
                             inline=False)
 
-            print(member, now, '!패치노트')
+            print(member, guild, now, '!패치노트')
             print('==========')
 
             await textchannel.send(embed=embed)
@@ -83,7 +84,7 @@ async def on_message(message):
                             value='```최근 6게임의 게임 결과를 불러옵니다.```',inline=False)
             embed.add_field(name='!랜덤',
                             value='```현재 이용 가능한 캐릭터 중 하나를 무작위로 선택합니다.```',inline=False)
-            print(member, now, '!도움말')
+            print(member, guild, now, '!도움말')
             print('==========')
             await textchannel.send(embed=embed)
 
@@ -92,7 +93,7 @@ async def on_message(message):
 
                 if len(msg) != 3:           #Case 1 3단어 이상 검색
                         if msg[1]=='도움말':   #Case 1 도움말
-                                print(member, now, '!전적 도움말')
+                                print(member, guild, now, '!전적 도움말')
                                 print('==========')
                                 embed = discord.Embed(
                                     title='사용법: !전적 (이름) (공식,일반) ',
@@ -102,7 +103,7 @@ async def on_message(message):
                                 await textchannel.send(embed=embed)
 
                         else:               #Another Case 도움말 이외의 전체
-                                print(member, now, '!전적', 'Error Code: Bad Order')
+                                print(member, guild, now, '!전적', 'Error Code: Bad Order')
                                 print('==========')
                                 embed = discord.Embed(title='오류!',
                                                       description='```명령어를 제대로 작성했는지 확인해주세요.\n 주로 이 오류는 닉네임에 공백이 포함되었거나 일반과 공식을 입력하지 않았을때 출력됩니다.\n도움이 필요하시다면 \'!전적 도움말\'을 이용해주세요.```'
@@ -247,7 +248,7 @@ async def on_message(message):
                                                 mpIpT.append(mpI[nmb].get('playTime'))
                                                 mpIhA.append(mpI[nmb].get('healAmount'))
 
-                                        print(member, now, '!전적', msg[2], rescode)
+                                        print(member, guild, now, '!전적', msg[2], rescode)
                                         print('==========')
 
                                         if nmb != -1:
@@ -303,7 +304,7 @@ async def on_message(message):
                                             await textchannel.send(embed=embed)
 
                                 except IndexError:
-                                        print(member, now, '!전적', "Error Code: 이름 없음")
+                                        print(member, guild, now, '!전적', "Error Code: 이름 없음")
                                         print('==========')
                                         embed = discord.Embed(title='오류', description='이름을 확인한 후 다시 시도해주세요.',
                                                               colour=0xcc9911, timestamp=now)
@@ -328,7 +329,7 @@ async def on_message(message):
                     color=DEFAULT_COLOR
                 )
                 embed_default(embed)
-                print(member, now, '!랜덤', 'Bad Request')
+                print(member, guild, now, '!랜덤', 'Bad Request')
                 print('==========')
                 await textchannel.send(embed=embed)
 
@@ -362,7 +363,7 @@ async def on_message(message):
                                     value='**{}**입니다!'.format(charName[i]),
                                     inline=False)
 
-                print(member, now, '!랜덤', require)
+                print(member, guild, now, '!랜덤', require)
                 print('==========')
                 await textchannel.send(embed=embed)
 
@@ -373,7 +374,7 @@ async def on_message(message):
                     color=DEFAULT_COLOR
                 )
                 embed_default(embed)
-                print(member, now, '!랜덤', 'Bad Request')
+                print(member, guild, now, '!랜덤', 'Bad Request')
                 print('==========')
                 await textchannel.send(embed=embed)
 
