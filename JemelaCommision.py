@@ -55,4 +55,4 @@ async def on_message(message):
             await message.delete()
 
 
-client.run("ODY3NTk2MjQ2Njk2NTkxMzcw.YPjZ-A.zMuyK7xIqgQsSIgpwznCS9aLFt8")
+client.run("Discord_API")
